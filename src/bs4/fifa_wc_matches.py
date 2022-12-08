@@ -14,7 +14,7 @@ import constants
 from py_log import log
 
 
-FOLDER_SAVE_lOG = constants.FOLDER_SAVE_lOG
+FOLDER_DATA = constants.FOLDER_DATA
 
 WC_URL = constants.WC_URL
 FIFA_WORLDCUP = constants.FIFA_WORLDCUP
@@ -23,8 +23,8 @@ WC_2022 = 2022
 
 def init():
     print('init')
-    if not os.path.exists(FOLDER_SAVE_lOG):
-        os.mkdir(FOLDER_SAVE_lOG)
+    if not os.path.exists(FOLDER_DATA):
+        os.mkdir(FOLDER_DATA)
 
 
 """
@@ -85,7 +85,7 @@ def get_results_one_year(year):
 
     log.info('{year} start'.format(year=year))
     df_fifa = crawl_matches(year)
-    df_fifa.to_csv(FOLDER_SAVE_lOG + '/' + FIFA_WORLDCUP +
+    df_fifa.to_csv(FOLDER_DATA + '/' + FIFA_WORLDCUP +
                    f'_{year}.csv', index=False)
     log.info('{year} end'.format(year=year))
 
@@ -108,7 +108,7 @@ def get_results_history(years):
         years=years, time=_time_end, time_crawl=_time_end-_time_start))
 
     df_fifa = pd.concat(fifa, ignore_index=True)
-    file_save = FOLDER_SAVE_lOG + '/' + FIFA_WORLDCUP + '_history.csv'
+    file_save = FOLDER_DATA + '/' + FIFA_WORLDCUP + '_history.csv'
 
     df_fifa.to_csv(file_save, index=False)
     log.info('end {len} years, done write file: {file}'.format(
