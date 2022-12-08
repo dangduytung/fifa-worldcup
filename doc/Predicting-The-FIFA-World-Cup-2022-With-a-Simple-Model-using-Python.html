@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="type--html">
+	<head>
+		<meta charset="utf-8" />
+		<title>Predicting The FIFA World Cup 2022 With a Simple Model using Python</title>
+
+		<style type="text/css">
+			:root {
+	--main-font: Palatino, 'Palatino Linotype', 'Times New Roman', 'Droid Serif',
+		Times, 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	--alt-font: 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--code-font: Menlo, Consolas, monospace;
+	--accent-color: black;
+}
+
+@page {
+	size: A5 portrait;
+	margin: 1cm 1cm 2cm;
+}
+
+html {
+	font-size: 12pt;
+	line-height: 1.3;
+	font-family: var(--main-font);
+	-webkit-print-color-adjust: exact;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0.5em;
+	font-family: var(--alt-font);
+	font-weight: bold;
+	page-break-after: avoid;
+	page-break-inside: avoid;
+}
+
+/*
+	Prevent dangling headings at the end of the page.
+
+	See:
+	
+	* https://github.com/danburzo/percollate/issues/110
+	* https://stackoverflow.com/a/53742871/21613
+ */
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+	content: '';
+	display: block;
+	height: 5rem;
+	margin-bottom: -5rem;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/*
+	Going on a limb here,
+	but a.anchor in heading elements
+	is most likely a '#' or '§' anchor
+	we don't want to display in the PDF.
+ */
+h1 a.anchor,
+h2 a.anchor,
+h3 a.anchor,
+h4 a.anchor,
+h5 a.anchor,
+h6 a.anchor {
+	visibility: hidden;
+	position: absolute;
+}
+
+th {
+	font-family: var(--alt-font);
+}
+
+code,
+pre {
+	font-size: 0.85em;
+}
+
+pre code {
+	font-size: 1em;
+}
+
+/*
+	Don't display hidden elements
+ */
+[hidden],
+[aria-hidden] {
+	display: none;
+}
+
+/*
+	Table of Contents page
+	----------------------------------------------------
+ */
+
+.toc {
+	page-break-before: always;
+	page-break-after: always;
+}
+
+/*
+	Article formatting
+	----------------------------------------------------
+ */
+
+article {
+	font-size: 1em;
+	hyphens: auto;
+}
+
+article:not(:last-of-type) {
+	page-break-after: always;
+}
+
+/*
+	Article Header
+	--------------
+ */
+
+.article__header {
+	margin: 0 0 1.3em;
+}
+
+.article__title {
+	font-size: 2.4em;
+	margin: 0 0 0.25em;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+}
+
+.article__url {
+	font-style: italic;
+	font-size: 0.9em;
+}
+
+/*
+	Article Content
+	---------------
+ */
+
+.article__content img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.article__content figure {
+	display: block;
+	margin: 1.5em 0;
+	padding: 0;
+	text-align: center;
+}
+
+.article__content figcaption {
+	font-size: 0.8em;
+	font-family: var(--alt-font);
+	margin: 0.81em 0;
+	line-height: 1.625;
+}
+
+.article__content figure blockquote,
+.article__content figure pre {
+	text-align: left;
+}
+
+.article__content table,
+.article__content figure {
+	page-break-inside: avoid;
+}
+
+.article__content pre,
+.article__content code {
+	font-family: var(--code-font);
+}
+
+.article__content pre {
+	border: 0.25pt solid #000;
+	padding: 0.75em;
+	font-size: 0.9em;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.article__content kbd,
+.article__content var,
+.article__content samp {
+	padding: 0 0.5em;
+	box-shadow: 2pt 2pt 0 #ccc;
+	border: 0.5pt solid #000;
+	border-radius: 0.25em;
+	font-size: 0.9em;
+}
+
+.article__content p {
+	margin: 0;
+	orphans: 3;
+	widows: 3;
+}
+
+/*
+	Indent all subsequent paragraphs.
+ */
+.article__content p + p {
+	text-indent: 2em;
+}
+
+/*
+	Fixes the text indent for images
+	that get wrapped in a <p> tag
+	by Readability.
+
+	Reference:
+	https://github.com/danburzo/percollate/issues/48
+ */
+.article__content p + p > img:only-child {
+	margin-left: -2em;
+}
+
+.article__content hr {
+	border: none;
+	height: 0.5pt;
+	margin: 1.3em 0;
+	background: #000;
+}
+
+.article__content blockquote {
+	font-size: 0.9em;
+	line-height: 1.44;
+	padding-left: 2em;
+	border-left: 3pt solid #000;
+	margin-left: 0;
+}
+
+.article__content table {
+	width: 100%;
+	border-collapse: collapse;
+	page-break-inside: auto;
+	font-size: 0.9em;
+	line-height: 1.44;
+	margin: 1.44em 0;
+}
+
+.article__content th {
+}
+
+.article__content th,
+.article__content td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.36em 1em 0.36em 0;
+}
+
+.article__content tr {
+	border-bottom: 0.25pt solid #000;
+	page-break-inside: avoid;
+	page-break-after: auto;
+}
+
+.article__content dt {
+	font-weight: bold;
+}
+
+.article__content ol,
+.article__content ul {
+	padding-left: 2em;
+	list-style-position: outside;
+	margin: 0.65em 0;
+}
+
+.article__content aside {
+	font-family: var(--alt-font);
+	font-size: 0.9em;
+	line-height: 1.44;
+	padding-left: 2em;
+}
+
+.article__content details {
+	margin: 0.65em 0;
+}
+
+.article__content details > summary {
+	font-weight: bold;
+	font-size: 0.9em;
+	font-family: var(--alt-font);
+}
+
+/*
+	Page header / footer
+	--------------------
+
+	These are extracted when generating the PDF
+	and are not subject to the page's CSS cascade.
+
+	They're just placed here for easier style coordination
+ */
+
+.header-template {
+}
+
+.footer-template {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+/*
+	Cover page
+	----------
+ */
+
+.cover {
+	color: var(--accent-color);
+	border: 0.5em solid;
+	font-family: var(--cover-font, var(--alt-font));
+	padding: 2em;
+}
+
+.cover__author {
+	margin: 1em 0;
+	font-weight: bold;
+}
+
+.cover__title {
+	font-size: 2.4em;
+	margin: 0;
+	line-height: 1.1;
+}
+
+.cover__subtitle {
+	margin: 1em 0;
+}
+
+.cover__date {
+	font-weight: bold;
+}
+
+/*
+	Filetype specific
+	-----------------
+ */
+
+.type--pdf body {
+	margin: 0;
+	padding: 0;
+}
+
+.type--pdf a:not(.no-href)::after {
+	content: ' → ' attr(href) '';
+	font-size: 0.8em;
+	word-break: break-all;
+	word-wrap: break-word;
+	font-family: var(--alt-font);
+}
+
+.type--pdf .cover,
+.type--epub .cover {
+	position: absolute;
+	overflow: hidden;
+}
+
+.type--pdf .cover {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.type--epub .cover {
+	top: 2em;
+	left: 2em;
+	right: 2em;
+	bottom: 2em;
+}
+
+.type--pdf .cover__content,
+.type--epub .cover__content {
+	position: absolute;
+	top: 30%;
+	left: 2em;
+	right: 2em;
+	transform: translate(0, -50%);
+}
+
+.type--pdf .cover__sentinel {
+	page-break-after: always;
+}
+
+		</style>
+	</head>
+	<body>
+		  
+		<article id="percollate-page-2ff18160-6afd-11ed-8932-d5f4b7b1cc20" class="article" lang="en">
+			<header class="article__header">
+				<h1 class="article__title">Predicting The FIFA World Cup 2022 With a Simple Model using Python</h1>
+				
+				<p class="article__url">
+					Source:
+					<a class="no-href" href="https://scribe.rip/geekculture/predicting-the-fifa-world-cup-2022-with-a-simple-model-using-python-6b34bdd4f2a5">https://scribe.rip/geekculture/predicting-the-fifa-world-cup-2022-with-a-simple-model-using-python-6b34bdd4f2a5</a>
+				</p>
+			</header>
+
+			<div class="article__content"><div class="page" id="readability-page-1"><article><section><h3>And the winner is…</h3><figure><img src="https://cdn-images-1.medium.com/fit/c/800/471/1*-0T6gsOd4XaTegeyak0rdQ.png"><label for="10429906942785050204">✍︎</label><span>Image via Shutterstock under license to Frank Andrade (edited with Canva)</span></figure><p>Many people (including me) call football “the unpredictable game” because a football match has different factors that can change the final score.</p><p>That’s true … to some extent.</p><p>It’s hard to predict the final score or the winner of a match, but that’s not the case when it comes to predicting the winner of a competition. Over the past 5 years, Bayern Munich has won all Bundesligas, while Manchester City has won 4 Premiere Leagues.</p><p>Coincidence? I don’t think so.</p><p>In fact, in the middle of the season 20–21,<a href="https://medium.datadriveninvestor.com/can-we-beat-the-bookies-predicting-football-games-with-a-simple-model-43fe020fb384"> I created a model to predict the winner</a> of the Premier League, La Liga, Serie A, and Bundesliga, and it successfully predicted the winner of all of them.</p><p>That prediction wasn’t so hard to make since 19 matches were already played at that point. Now I’m running the same model to predict the World Cup 2022.</p><p>Here’s how I predicted the World Cup using Python (for more details about the code <a href="https://youtu.be/anEoBZkZRHA">check my 1-hour video tutorial</a>)</p><h3>How are we going to predict the matches?</h3><p>There are different ways to make predictions. I could build a fancy machine learning model and feed it multiple variables, but after reading some papers I decided to give a chance to the Poisson distribution.</p><p>Why? Well, let’s have a look at the definition of the Poisson distribution.</p><blockquote><p>The Poisson distribution is a discrete probability distribution that describes the number of events occurring in a fixed time interval or region of opportunity.</p></blockquote><p>If we think of a goal as an event that might happen in the 90 minutes of a football match, we could calculate the probability of the number of goals that could be scored in a match by Team A and Team B.</p><p>But that’s not enough. We still need to meet the assumptions of the Poisson distribution.</p><ol><li>The number of events can be counted (a match can have 1, 2, 3 or more goals)</li><li>The occurrence of events is independent (the occurrence of one goal should not affect the probability of another goal)</li><li>The rate at which events occur is constant (the probability of a goal occurring in a certain time interval should be exactly the same for every other time interval of the same length)</li><li>Two events cannot occur at exactly the same instant in time (two goals can’t occur at the same time)</li></ol><p>Without a doubt assumptions 1 and 4 are met, but 2 and 3 are partly true. That said, let’s assume that assumptions 2 and 3 are always true.</p><p>When I predicted the winners of the top European leagues, I plotted the histogram of the number of goals in every match over the past 5 years for the top 4 leagues.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/700/367/0*O7t9vlLea-QHZ62W.png"><label for="13626016316811488547">✍︎</label><span>Histogram of the number of goals in the 4 leagues</span></figure><p>If you have a look at the fit curve of any league, it looks like the Poisson distribution.</p><p>Now we can say that it’s possible to use the Poisson distribution to calculate the probability of the number of goals that could be scored in a match.</p><p>Here’s the formula of the Poisson distribution.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/396/159/0*mS13hITSE58ZoWrx.png"><label for="789164980454196069">✍︎</label><span></span></figure><p>To make the predictions I considered:</p><p><strong>lambda</strong>: median of goals in 90 minutes (Team A and Team B)
+<strong>x</strong>: number of goals in a match that could be scored by Team A and Team B</p><p>To calculate lambda, we need the average goals scored/conceded by each national team. This leads us to the next point.</p><h3>Goals scored/conceded by every national team</h3><p>After <a href="https://medium.com/geekculture/web-scraping-football-matches-from-the-world-cups-1930-to-2022-with-python-d2a1d578f034">collecting data from all the World Cup matches played from 1930 to 2018</a>, I could calculate the average goal scored and conceded by each national team.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/499/569/1*uVcHohY32JavLpz1eyp9GQ.png"><label for="789164980454196069">✍︎</label><span></span></figure><p>In the prediction I made for the top 4 European leagues, I considered the home/away factor, but since in the World Cup almost all teams play in a neutral stadium, I didn’t consider that factor for this analysis.</p><p>Once I had the goals scored/conceded by every national team, I created a function that predicted the number of points each team would get in the group stage.</p><h2>Predicting the group stage</h2><p>Below is the code I used to predict the number of points each national team would get in the group stage. It looks intimidating, but it only has many things I mentioned until this point translated into code.</p><figure><pre>def predict_points(home, away):
+    if home in df_team_strength.index and away in df_team_strength.index:
+        lamb_home = df_team_strength.at[home,'GoalsScored'] * df_team_strength.at[away,'GoalsConceded']
+        lamb_away = df_team_strength.at[away,'GoalsScored'] * df_team_strength.at[home,'GoalsConceded']
+        prob_home, prob_away, prob_draw = 0, 0, 0
+        for x in range(0,11): #number of goals home team
+            for y in range(0, 11): #number of goals away team
+                p = poisson.pmf(x, lamb_home) * poisson.pmf(y, lamb_away)
+                if x == y:
+                    prob_draw += p
+                elif x &gt; y:
+                    prob_home += p
+                else:
+                    prob_away += p
+        
+        points_home = 3 * prob_home + prob_draw
+        points_away = 3 * prob_away + prob_draw
+        return (points_home, points_away)
+    else:
+        return (0, 0)</pre></figure><p>In plain English, <code>predict_points</code> calculates how many points the home and away teams would get. To do so, I calculated lambda for each team using the formula <code>average_goals_scored * average_goals_conceded</code> .</p><p>Then I simulated all the possible scores of a match from 0–0 to 10–10 (that last score is just the limit of my range of goals). Once I have lambda and x, I use the formula of the Poisson distribution to calculate <code>p</code>.</p><p>The <code>prob_home</code>, <code>prob_draw</code>, and <code>prob_away</code> accumulates the value of <code>p</code> if, say, the match ends in 1–0 (home wins), 1–1 (draw), or 0–1 (away wins) respectively. Finally, the points are calculated with the formula below.</p><figure><pre>points_home = 3 * prob_home + prob_draw
+points_away = 3 * prob_away + prob_draw</pre></figure><p>If we use <code>predict_points</code> to predict the match England vs United States, we’ll get this.</p><figure><pre>&gt;&gt;&gt; predict_points('England', 'United States')
+(2.2356147635326007, 0.5922397535606193)</pre></figure><p>This means that England would get 2.23 points, while the USA would get 0.59. I get decimals because I’m using probabilities.</p><p>If we apply this <code>predict_points</code> function to all the matches in the group stage, we’ll get the 1st and 2nd position of each group, thus the following matches in the knockouts.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/800/647/1*zYzjn5eySaFrciH45KI1_g.png"><label for="8084203072351137900">✍︎</label><span>Image edited by author with Canva</span></figure><h2>Predicting the knockouts</h2><p>For the knockouts, I don’t need to predict the points, but the winner of each bracket. This is why I created a new <code>get_winner</code> function based on the previous <code>predict_points</code> function.</p><figure><pre>def get_winner(df_fixture_updated):
+    for index, row in df_fixture_updated.iterrows():
+        home, away = row['home'], row['away']
+        points_home, points_away = predict_points(home, away)
+        if points_home &gt; points_away:
+            winner = home
+        else:
+            winner = away
+        df_fixture_updated.loc[index, 'winner'] = winner
+    return df_fixture_updated</pre></figure><p>To put it simply, if the <code>points_home</code> is greater than the <code>points_away</code> the winner is the home team, otherwise, the winner is the away team.</p><p>Thanks to the <code>get_winner</code> function, I can get the results of the previous brackets.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/800/647/1*VEUXEIL5KZKQGrPa4tK8Bw.png"><label for="9798826967649577611">✍︎</label><span>Image edited by author with Canva</span></figure><h2>Predicting the quarter-final, semifinal, and final</h2><p>If I use the <code>get_winner</code> again I can predict the winner of the World Cup. Here’s the final result!!</p><figure><img src="https://cdn-images-1.medium.com/fit/c/800/647/1*cYAPDdAr7Rg1flwB94EAFA.png"><label for="2918446492955066117">✍︎</label><span>Image edited by author with Canva</span></figure><p>By running the function one more time, I get that the winner is …</p><blockquote><p>Brazil!</p></blockquote><p>That’s it! That’s how I predicted the World Cup 2022 using Python and the Poisson distribution. To see the complete code, check my <a href="https://github.com/ifrankandrade?tab=repositories">GitHub</a>. You can also check my <a href="https://frank-andrade.medium.com/list/python-project-fifa-world-cup-2022-prediction-85426e7c421c">Medium list</a>, to see all the articles related to this Python project.</p><p>Learning Data Science with Python? <strong><a href="https://frankandrade.ck.page/26b76e9130">Get my FREE Python for Data Science Cheat Sheet by joining my email list with 20k+ people.</a></strong></p><p>If you enjoy reading stories like these and want to support me as a writer, consider signing up to become a Medium member. It’s $5 a month, giving you unlimited access to thousands of Python guides and Data science articles. If you sign up using <a href="https://frank-andrade.medium.com/membership">my link</a>, I’ll earn a small commission with no extra cost to you.</p><blockquote><p><strong><a href="https://frank-andrade.medium.com/membership">Join Medium with my referral link — Frank Andrade</a></strong>
+<em>As a Medium member, a portion of your membership fee goes to writers you read, and you get full access to every story…</em><a href="https://frank-andrade.medium.com/membership">frank-andrade.medium.com</a></p></blockquote></section></article></div></div>
+		</article>
+		
+
+		<!-- Template to use for page footer -->
+		<template class="footer-template">
+			<div class="text center">
+				<span class="pageNumber"></span>
+			</div>
+		</template>
+	</body>
+</html>

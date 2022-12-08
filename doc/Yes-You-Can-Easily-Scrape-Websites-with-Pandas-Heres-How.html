@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="type--html">
+	<head>
+		<meta charset="utf-8" />
+		<title>Yes, You Can Easily Scrape Websites with Pandas. Here’s How.</title>
+
+		<style type="text/css">
+			:root {
+	--main-font: Palatino, 'Palatino Linotype', 'Times New Roman', 'Droid Serif',
+		Times, 'Source Serif Pro', serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	--alt-font: 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--code-font: Menlo, Consolas, monospace;
+	--accent-color: black;
+}
+
+@page {
+	size: A5 portrait;
+	margin: 1cm 1cm 2cm;
+}
+
+html {
+	font-size: 12pt;
+	line-height: 1.3;
+	font-family: var(--main-font);
+	-webkit-print-color-adjust: exact;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0.5em;
+	font-family: var(--alt-font);
+	font-weight: bold;
+	page-break-after: avoid;
+	page-break-inside: avoid;
+}
+
+/*
+	Prevent dangling headings at the end of the page.
+
+	See:
+	
+	* https://github.com/danburzo/percollate/issues/110
+	* https://stackoverflow.com/a/53742871/21613
+ */
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+	content: '';
+	display: block;
+	height: 5rem;
+	margin-bottom: -5rem;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+/*
+	Going on a limb here,
+	but a.anchor in heading elements
+	is most likely a '#' or '§' anchor
+	we don't want to display in the PDF.
+ */
+h1 a.anchor,
+h2 a.anchor,
+h3 a.anchor,
+h4 a.anchor,
+h5 a.anchor,
+h6 a.anchor {
+	visibility: hidden;
+	position: absolute;
+}
+
+th {
+	font-family: var(--alt-font);
+}
+
+code,
+pre {
+	font-size: 0.85em;
+}
+
+pre code {
+	font-size: 1em;
+}
+
+/*
+	Don't display hidden elements
+ */
+[hidden],
+[aria-hidden] {
+	display: none;
+}
+
+/*
+	Table of Contents page
+	----------------------------------------------------
+ */
+
+.toc {
+	page-break-before: always;
+	page-break-after: always;
+}
+
+/*
+	Article formatting
+	----------------------------------------------------
+ */
+
+article {
+	font-size: 1em;
+	hyphens: auto;
+}
+
+article:not(:last-of-type) {
+	page-break-after: always;
+}
+
+/*
+	Article Header
+	--------------
+ */
+
+.article__header {
+	margin: 0 0 1.3em;
+}
+
+.article__title {
+	font-size: 2.4em;
+	margin: 0 0 0.25em;
+	letter-spacing: -0.03em;
+	line-height: 1.1;
+}
+
+.article__url {
+	font-style: italic;
+	font-size: 0.9em;
+}
+
+/*
+	Article Content
+	---------------
+ */
+
+.article__content img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.article__content figure {
+	display: block;
+	margin: 1.5em 0;
+	padding: 0;
+	text-align: center;
+}
+
+.article__content figcaption {
+	font-size: 0.8em;
+	font-family: var(--alt-font);
+	margin: 0.81em 0;
+	line-height: 1.625;
+}
+
+.article__content figure blockquote,
+.article__content figure pre {
+	text-align: left;
+}
+
+.article__content table,
+.article__content figure {
+	page-break-inside: avoid;
+}
+
+.article__content pre,
+.article__content code {
+	font-family: var(--code-font);
+}
+
+.article__content pre {
+	border: 0.25pt solid #000;
+	padding: 0.75em;
+	font-size: 0.9em;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.article__content kbd,
+.article__content var,
+.article__content samp {
+	padding: 0 0.5em;
+	box-shadow: 2pt 2pt 0 #ccc;
+	border: 0.5pt solid #000;
+	border-radius: 0.25em;
+	font-size: 0.9em;
+}
+
+.article__content p {
+	margin: 0;
+	orphans: 3;
+	widows: 3;
+}
+
+/*
+	Indent all subsequent paragraphs.
+ */
+.article__content p + p {
+	text-indent: 2em;
+}
+
+/*
+	Fixes the text indent for images
+	that get wrapped in a <p> tag
+	by Readability.
+
+	Reference:
+	https://github.com/danburzo/percollate/issues/48
+ */
+.article__content p + p > img:only-child {
+	margin-left: -2em;
+}
+
+.article__content hr {
+	border: none;
+	height: 0.5pt;
+	margin: 1.3em 0;
+	background: #000;
+}
+
+.article__content blockquote {
+	font-size: 0.9em;
+	line-height: 1.44;
+	padding-left: 2em;
+	border-left: 3pt solid #000;
+	margin-left: 0;
+}
+
+.article__content table {
+	width: 100%;
+	border-collapse: collapse;
+	page-break-inside: auto;
+	font-size: 0.9em;
+	line-height: 1.44;
+	margin: 1.44em 0;
+}
+
+.article__content th {
+}
+
+.article__content th,
+.article__content td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.36em 1em 0.36em 0;
+}
+
+.article__content tr {
+	border-bottom: 0.25pt solid #000;
+	page-break-inside: avoid;
+	page-break-after: auto;
+}
+
+.article__content dt {
+	font-weight: bold;
+}
+
+.article__content ol,
+.article__content ul {
+	padding-left: 2em;
+	list-style-position: outside;
+	margin: 0.65em 0;
+}
+
+.article__content aside {
+	font-family: var(--alt-font);
+	font-size: 0.9em;
+	line-height: 1.44;
+	padding-left: 2em;
+}
+
+.article__content details {
+	margin: 0.65em 0;
+}
+
+.article__content details > summary {
+	font-weight: bold;
+	font-size: 0.9em;
+	font-family: var(--alt-font);
+}
+
+/*
+	Page header / footer
+	--------------------
+
+	These are extracted when generating the PDF
+	and are not subject to the page's CSS cascade.
+
+	They're just placed here for easier style coordination
+ */
+
+.header-template {
+}
+
+.footer-template {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+/*
+	Cover page
+	----------
+ */
+
+.cover {
+	color: var(--accent-color);
+	border: 0.5em solid;
+	font-family: var(--cover-font, var(--alt-font));
+	padding: 2em;
+}
+
+.cover__author {
+	margin: 1em 0;
+	font-weight: bold;
+}
+
+.cover__title {
+	font-size: 2.4em;
+	margin: 0;
+	line-height: 1.1;
+}
+
+.cover__subtitle {
+	margin: 1em 0;
+}
+
+.cover__date {
+	font-weight: bold;
+}
+
+/*
+	Filetype specific
+	-----------------
+ */
+
+.type--pdf body {
+	margin: 0;
+	padding: 0;
+}
+
+.type--pdf a:not(.no-href)::after {
+	content: ' → ' attr(href) '';
+	font-size: 0.8em;
+	word-break: break-all;
+	word-wrap: break-word;
+	font-family: var(--alt-font);
+}
+
+.type--pdf .cover,
+.type--epub .cover {
+	position: absolute;
+	overflow: hidden;
+}
+
+.type--pdf .cover {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.type--epub .cover {
+	top: 2em;
+	left: 2em;
+	right: 2em;
+	bottom: 2em;
+}
+
+.type--pdf .cover__content,
+.type--epub .cover__content {
+	position: absolute;
+	top: 30%;
+	left: 2em;
+	right: 2em;
+	transform: translate(0, -50%);
+}
+
+.type--pdf .cover__sentinel {
+	page-break-after: always;
+}
+
+		</style>
+	</head>
+	<body>
+		  
+		<article id="percollate-page-04a13fa0-6afd-11ed-b99b-530b8030b0ba" class="article" lang="en">
+			<header class="article__header">
+				<h1 class="article__title">Yes, You Can Easily Scrape Websites with Pandas. Here’s How.</h1>
+				
+				<p class="article__url">
+					Source:
+					<a class="no-href" href="https://scribe.rip/geekculture/yes-you-can-easily-scrape-websites-with-pandas-heres-how-f833157781d5">https://scribe.rip/geekculture/yes-you-can-easily-scrape-websites-with-pandas-heres-how-f833157781d5</a>
+				</p>
+			</header>
+
+			<div class="article__content"><div class="page" id="readability-page-1"><article><section><h3>Scraping websites with pandas and Python with only a few lines of code.</h3><figure><img src="https://cdn-images-1.medium.com/fit/c/800/533/1*0JSIcHwVn2sBEMqz250qKA.jpeg"><label for="1315839231746232630">✍︎</label><span>Image via Shutterstock under license to Frank Andrade</span></figure><p>Scraping websites doesn’t have to be hard (especially if you know Python).</p><p>Dynamic websites can be scraped with libraries such as Selenium and Scrapy. Simple websites can be scraped with BeautifulSoup, and super simple websites can be scraped with only pandas.</p><p>And we only need one or two lines of code to scrape websites with pandas!</p><p>In this article, we’re going to scrape data from Wikipedia.</p><p>We’ll extract the <a href="https://en.wikipedia.org/wiki/2022_FIFA_World_Cup">group tables from the 2022 FIFA World Cup</a>. There are 8 tables from Group A to Group H and we’ll get them with a few lines of code using pandas and Python.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/800/229/1*wGkoPTF3Mlb3tebAAT_LKQ.png"><label for="789164980454196069">✍︎</label><span></span></figure><h3>First things first — Installing the libraries and dependencies</h3><p>The first thing we have to do is install the libraries we’ll use for this tutorial — pandas and string.</p><p><code>pandas</code> will be used to extract data and the <code>string</code> module will help us better organize the data extracted.</p><figure><pre>pip install pandas
+pip install strings</pre></figure><p>Note: To do web scraìng with pandas we also need to install some dependencies such as <code>lxml</code> and <code>html5lib</code> (we can install them with pip)</p><p>Once these libraries are installed on our computers, we can start with this tutorial.</p><h3>Scraping the website (in one line of code)</h3><p>Simple websites like Wikipedia can be easily scraped in one/two lines of code using pandas.</p><p>To do so, first, we have to import pandas. Then, we have to use the method <code>.read_html</code> and within parentheses write the website we want to scrape.</p><figure><pre><strong>import</strong> pandas <strong>as</strong> pd
+all_tables = pd.read_html("<a class="no-href" href="https://en.wikipedia.org/wiki/2022_FIFA_World_Cup">https://en.wikipedia.org/wiki/2022_FIFA_World_Cup</a>")</pre></figure><p>That’s pretty much it! All the tables on the Wikipedia website are now stored in the list <code>all_tables</code>.</p><p>Now we have to look for the tables that belong to groups A, B, …H (8 tables in total)</p><p>If we navigate through the elements of the list, we’ll see that the first, second and third tables are in index 11, 18, and 25 respectively.</p><figure><pre>all_tables[11]
+all_tables[18]
+all_tables[25]</pre></figure><p>Here’s how the table of Group C (index 25) looks.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/800/216/1*e4jubMmxf6jvFv9pdJY_qw.png"><label for="789164980454196069">✍︎</label><span></span></figure><h3>Organizing the data</h3><p>If we navigate through the indexes of the <code>all_tables</code> list, we’ll find that the first table is index 11 and the following tables are 7 indexes ahead.</p><p>We can link these indexes with the name of each group using the <code>zip</code> function.</p><figure><pre><strong>for</strong> letter, i in <strong>zip</strong>(alphabet, <strong>range</strong>(11, 67, 7)):
+    <strong>print</strong>(letter, i)</pre></figure><p>The output will be the following</p><figure><pre>A 11
+B 18
+C 25
+D 32
+E 39
+F 46
+G 53
+H 60</pre></figure><p>Great! Now we know that index 11 belongs to Group A and index 60 belong to Group H.</p><p>It’s time to better organize the tables extracted in a dictionary, so we don’t have to deal with these ugly indexes anymore. We’ll also clean the dataframes by renaming the name of the second column “Teamvte” and dropping the column “Qualification.”</p><figure><pre>dict_tables = {}
+<strong>for</strong> letter, i in <strong>zip</strong>(alphabet, <strong>range</strong>(11, 67, 7)):
+    df = all_tables[i]
+    df.rename(columns={df.columns[1]: 'Team'}, inplace=True)
+    df.pop('Qualification')
+    dict_tables[f'Group {letter}'] = df</pre></figure><p>That’s it! Now we have all the tables stored in the <code>dict_tables</code> dictionary. Let’s have a look</p><figure><pre>&gt;&gt;&gt; dict_tables.keys()
+dict_keys(['Group A', 'Group B', 'Group C', 'Group D', 'Group E', 'Group F', 'Group G', 'Group H'])</pre></figure><p>Now we can get the table of any group by specifying its key. Here’s how we’ll do it for Group H.</p><figure><pre>dict_tables['Group H']</pre></figure><p>And here’s the output.</p><figure><img src="https://cdn-images-1.medium.com/fit/c/535/214/1*AfX_YYEpi-J9isMha-blgA.png"><label for="789164980454196069">✍︎</label><span></span></figure><p>Congratulations! You’ve learned how to scrape websites with pandas. Here’s all the code we’ve written in this tutorial.</p><p><code><a href="https://gist.github.com/ifrankandrade/f0e02d757068dd9cf4aba24b0fd1ab6c#file-pandas_ws-py">pandas_ws.py</a></code></p><figure><pre><code>import pandas as pd
+from string import ascii_uppercase as alphabet
+
+all_tables = pd.read_html("https://en.wikipedia.org/wiki/2022_FIFA_World_Cup")
+
+dict_tables = {}
+for letter, i in zip(alphabet, range(11, 67, 7)):
+    df = all_tables[i]
+    df.rename(columns={df.columns[1]: 'Team'}, inplace=True)
+    df.pop('Qualification')
+    dict_tables[f'Group {letter}'] = df
+    
+# show all the keys
+print(dict_tables.keys())
+
+# show table of Group H
+dict_tables['Group H']</code></pre></figure><p>Turn websites into datasets! <strong><a href="https://frankandrade.ck.page/ca38420833">Get my FREE Web Scraping Cheat Sheet by joining my email list with 10k+ people.</a></strong></p><p>If you enjoy reading stories like these and want to support me as a writer, consider signing up to become a Medium member. It’s $5 a month, giving you unlimited access to thousands of Python guides and Data science articles. If you sign up using <a href="https://frank-andrade.medium.com/membership">my link</a>, I’ll earn a small commission with no extra cost to you.</p><blockquote><p><strong><a href="https://frank-andrade.medium.com/membership">Join Medium with my referral link — Frank Andrade</a></strong>
+<em>As a Medium member, a portion of your membership fee goes to writers you read, and you get full access to every story…</em><a href="https://frank-andrade.medium.com/membership">frank-andrade.medium.com</a></p></blockquote></section></article></div></div>
+		</article>
+		
+
+		<!-- Template to use for page footer -->
+		<template class="footer-template">
+			<div class="text center">
+				<span class="pageNumber"></span>
+			</div>
+		</template>
+	</body>
+</html>
