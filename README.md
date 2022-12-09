@@ -15,10 +15,15 @@ pip install pandas
 pip install strings
 pip install lxml
 pip install html5lib
+pip install selenium
+pip install bs4
 ```
 
 ## Run
 ```
-# Crawl matches
+# Crawl matches using BeautifulSoup
 py src/bs4/fifa_wc_matches.py
+
+# Crawl matches using Selenium
+py src/selenium/s_fifa_wc_matches.py
 ```

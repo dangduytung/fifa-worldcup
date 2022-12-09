@@ -1,0 +1,67 @@
+2022-12-09 16:42:02,779 | dev  | INFO     | s_fifa_wc_matches.py | 0144 | <module> | driver: <selenium.webdriver.chrome.webdriver.WebDriver (session="d9663f620b2da4f8125d9cfd96644be8")>, years: [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014, 2018]
+2022-12-09 16:42:02,780 | dev  | INFO     | s_fifa_wc_matches.py | 0126 | get_results_history | [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014, 2018] start 2022-12-09 16:42:02.780959
+2022-12-09 16:42:02,780 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1930 start
+2022-12-09 16:42:03,855 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1930 table 0: tag 'td' len: 0
+2022-12-09 16:42:03,899 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1930 table 0: tag 'th' len: 18
+2022-12-09 16:42:05,781 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1934 start
+2022-12-09 16:42:06,168 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1934 table 0: tag 'td' len: 0
+2022-12-09 16:42:06,214 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1934 table 0: tag 'th' len: 17
+2022-12-09 16:42:07,747 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1938 start
+2022-12-09 16:42:08,043 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1938 table 0: tag 'td' len: 0
+2022-12-09 16:42:08,112 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1938 table 0: tag 'th' len: 19
+2022-12-09 16:42:09,888 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1950 start
+2022-12-09 16:42:10,170 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1950 table 0: tag 'td' len: 0
+2022-12-09 16:42:10,229 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1950 table 0: tag 'th' len: 22
+2022-12-09 16:42:12,652 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1954 start
+2022-12-09 16:42:14,046 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1954 table 0: tag 'td' len: 0
+2022-12-09 16:42:14,110 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1954 table 0: tag 'th' len: 26
+2022-12-09 16:42:17,314 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1958 start
+2022-12-09 16:42:17,641 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1958 table 0: tag 'td' len: 0
+2022-12-09 16:42:17,699 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1958 table 0: tag 'th' len: 35
+2022-12-09 16:42:22,367 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1962 start
+2022-12-09 16:42:22,813 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1962 table 0: tag 'td' len: 0
+2022-12-09 16:42:22,824 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1962 table 0: tag 'th' len: 32
+2022-12-09 16:42:27,524 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1966 start
+2022-12-09 16:42:27,880 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1966 table 0: tag 'td' len: 0
+2022-12-09 16:42:27,944 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1966 table 0: tag 'th' len: 32
+2022-12-09 16:42:33,081 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1970 start
+2022-12-09 16:42:34,597 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1970 table 0: tag 'td' len: 24
+2022-12-09 16:42:38,778 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1970 table 0: tag 'th' len: 8
+2022-12-09 16:42:40,223 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1974 start
+2022-12-09 16:42:40,495 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1974 table 0: tag 'td' len: 36
+2022-12-09 16:42:46,978 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1974 table 0: tag 'th' len: 2
+2022-12-09 16:42:47,359 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1978 start
+2022-12-09 16:42:47,705 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1978 table 0: tag 'td' len: 36
+2022-12-09 16:42:55,044 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1978 table 0: tag 'th' len: 2
+2022-12-09 16:42:55,460 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1982 start
+2022-12-09 16:42:55,895 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1982 table 0: tag 'td' len: 48
+2022-12-09 16:43:06,205 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1982 table 0: tag 'th' len: 4
+2022-12-09 16:43:07,091 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1986 start
+2022-12-09 16:43:07,504 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1986 table 0: tag 'td' len: 36
+2022-12-09 16:43:15,816 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1986 table 0: tag 'th' len: 16
+2022-12-09 16:43:19,662 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1990 start
+2022-12-09 16:43:20,097 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1990 table 0: tag 'td' len: 36
+2022-12-09 16:43:29,245 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1990 table 0: tag 'th' len: 16
+2022-12-09 16:43:33,316 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1994 start
+2022-12-09 16:43:33,719 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1994 table 0: tag 'td' len: 36
+2022-12-09 16:43:43,340 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1994 table 0: tag 'th' len: 16
+2022-12-09 16:43:47,748 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 1998 start
+2022-12-09 16:43:48,176 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 1998 table 0: tag 'td' len: 48
+2022-12-09 16:44:01,495 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 1998 table 0: tag 'th' len: 16
+2022-12-09 16:44:06,043 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 2002 start
+2022-12-09 16:44:06,550 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 2002 table 0: tag 'td' len: 0
+2022-12-09 16:44:06,623 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 2002 table 0: tag 'th' len: 64
+2022-12-09 16:44:26,014 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 2006 start
+2022-12-09 16:44:26,569 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 2006 table 0: tag 'td' len: 0
+2022-12-09 16:44:26,638 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 2006 table 0: tag 'th' len: 64
+2022-12-09 16:44:47,427 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 2010 start
+2022-12-09 16:44:48,039 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 2010 table 0: tag 'td' len: 64
+2022-12-09 16:45:10,046 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 2010 table 0: tag 'th' len: 64
+2022-12-09 16:45:33,069 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 2014 start
+2022-12-09 16:45:33,622 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 2014 table 0: tag 'td' len: 0
+2022-12-09 16:45:33,709 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 2014 table 0: tag 'th' len: 64
+2022-12-09 16:45:58,008 | dev  | INFO     | s_fifa_wc_matches.py | 0047 | crawl_matches | 2018 start
+2022-12-09 16:45:58,651 | dev  | INFO     | s_fifa_wc_matches.py | 0060 | crawl_matches | 2018 table 0: tag 'td' len: 0
+2022-12-09 16:45:58,814 | dev  | INFO     | s_fifa_wc_matches.py | 0084 | crawl_matches | 2018 table 0: tag 'th' len: 64
+2022-12-09 16:46:25,173 | dev  | INFO     | s_fifa_wc_matches.py | 0132 | get_results_history | [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014, 2018] end 2022-12-09 16:46:25.173405 ~ time crawl: 0:04:22.392446
+2022-12-09 16:46:25,181 | dev  | INFO     | s_fifa_wc_matches.py | 0139 | get_results_history | end 21 years, done write file: data/fifa_worldcup_selenium_history.csv
