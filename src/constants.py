@@ -1,4 +1,4 @@
-FOLDER_SAVE_lOG = 'data'
+FOLDER_DATA = 'data'
 
 WC_URL = 'https://en.wikipedia.org/wiki/{year}_FIFA_World_Cup'
 

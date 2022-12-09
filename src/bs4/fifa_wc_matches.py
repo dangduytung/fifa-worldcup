@@ -13,7 +13,6 @@ sys.path.append(parent)
 import constants
 from py_log import log
 
-
 FOLDER_DATA = constants.FOLDER_DATA
 
 WC_URL = constants.WC_URL
@@ -30,6 +29,7 @@ def init():
 """
 Crawl matches fifa-worldcup
 """
+
 
 def crawl_matches(year):
     log.info('{year} start'.format(
@@ -50,22 +50,21 @@ def crawl_matches(year):
 
     for match in matches:
 
-        # Ignore table 'Match summary' in 2010
-        if match.find('td', attrs={"align": "center"}) is not None:
-            if match.find(attrs={"align": "center"}).get_text().rstrip()  == 'Preliminary events':
-                continue
+        # Ignore some tables
+        if ignore_match(year, match):
+            continue
 
         if match.find('th', class_='fhome') is not None:
-            home.append(match.find('th', class_='fhome').get_text().rstrip())
-            score.append(match.find('th', class_='fscore').get_text().rstrip())
-            away.append(match.find('th', class_='faway').get_text().rstrip())
+            home.append(match.find('th', class_='fhome').get_text().strip())
+            score.append(match.find('th', class_='fscore').get_text().strip())
+            away.append(match.find('th', class_='faway').get_text().strip())
 
         if match.find(attrs={"align": "right"}) is not None:
             _m_tr = match.find_all(attrs={"align": "right"})
             for _m in _m_tr:
-                home.append(_m.parent.find_all('td')[0].get_text().rstrip())
-                score.append(_m.parent.find_all('td')[1].get_text().rstrip())
-                away.append(_m.parent.find_all('td')[2].get_text().rstrip())
+                home.append(_m.parent.find_all('td')[0].get_text().strip())
+                score.append(_m.parent.find_all('td')[1].get_text().strip())
+                away.append(_m.parent.find_all('td')[2].get_text().strip())
 
     dict_football = {'home': home, 'score': score, 'away': away}
     df_football = pd.DataFrame(dict_football)
@@ -74,6 +73,30 @@ def crawl_matches(year):
     log.info('{year} end'.format(
         year=year))
     return df_football
+
+
+"""
+Ignore some table is not match
+"""
+
+
+def ignore_match(year, match):
+    # Ignore table 'Match summary' in 2010
+    if year == 2010 and match.find('td', attrs={"align": "center"}) is not None:
+        _t = 'Preliminary events'
+        if _t == match.find(attrs={"align": "center"}).get_text().strip():
+            log.warning('{year} ignore table has text: {text}'.format(
+                year=year, text=_t))
+            return True
+
+    # Ignore table 'Top 10 highest attendances' in 2022
+    if year == 2022 and match.find_previous_sibling('h3') is not None:
+        _t = 'Top 10 highest attendances'
+        if _t == match.find_previous_sibling('h3').get_text().strip():
+            log.warning('{year} ignore table has text: {text}'.format(
+                year=year, text=_t))
+            return True
+    return False
 
 
 """
@@ -98,14 +121,15 @@ Just run one
 
 def get_results_history(years):
 
-    _time_start = datetime.datetime.now()
+    time_start = datetime.datetime.now()
     log.info('{years} start {time}'.format(
-        years=years, time=_time_start))
+        years=years, time=time_start))
+    
     fifa = [crawl_matches(year) for year in years]
 
-    _time_end = datetime.datetime.now()
+    time_end = datetime.datetime.now()
     log.info('{years} end {time} ~ time crawl: {time_crawl}'.format(
-        years=years, time=_time_end, time_crawl=_time_end-_time_start))
+        years=years, time=time_end, time_crawl=time_end-time_start))
 
     df_fifa = pd.concat(fifa, ignore_index=True)
     file_save = FOLDER_DATA + '/' + FIFA_WORLDCUP + '_history.csv'

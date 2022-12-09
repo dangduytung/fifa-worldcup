@@ -1,0 +1,67 @@
+2022-12-09 15:54:48,134 | dev  | INFO     | fifa_wc_matches.py | 0125 | get_results_history | [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014, 2018] start 2022-12-09 15:54:48.134716
+2022-12-09 15:54:48,135 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1930 start
+2022-12-09 15:54:48,654 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1930 ~ length matches: 33
+2022-12-09 15:54:48,674 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1930 end
+2022-12-09 15:54:48,675 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1934 start
+2022-12-09 15:54:49,048 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1934 ~ length matches: 26
+2022-12-09 15:54:49,071 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1934 end
+2022-12-09 15:54:49,071 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1938 start
+2022-12-09 15:54:49,419 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1938 ~ length matches: 29
+2022-12-09 15:54:49,442 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1938 end
+2022-12-09 15:54:49,442 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1950 start
+2022-12-09 15:54:49,801 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1950 ~ length matches: 37
+2022-12-09 15:54:49,824 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1950 end
+2022-12-09 15:54:49,825 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1954 start
+2022-12-09 15:54:50,287 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1954 ~ length matches: 39
+2022-12-09 15:54:50,311 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1954 end
+2022-12-09 15:54:50,311 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1958 start
+2022-12-09 15:54:50,711 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1958 ~ length matches: 52
+2022-12-09 15:54:50,740 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1958 end
+2022-12-09 15:54:50,741 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1962 start
+2022-12-09 15:54:51,127 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1962 ~ length matches: 49
+2022-12-09 15:54:51,152 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1962 end
+2022-12-09 15:54:51,154 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1966 start
+2022-12-09 15:54:51,605 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1966 ~ length matches: 49
+2022-12-09 15:54:51,632 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1966 end
+2022-12-09 15:54:51,634 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1970 start
+2022-12-09 15:54:52,131 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1970 ~ length matches: 29
+2022-12-09 15:54:52,158 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1970 end
+2022-12-09 15:54:52,159 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1974 start
+2022-12-09 15:54:52,592 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1974 ~ length matches: 24
+2022-12-09 15:54:52,616 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1974 end
+2022-12-09 15:54:52,617 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1978 start
+2022-12-09 15:54:52,998 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1978 ~ length matches: 24
+2022-12-09 15:54:53,022 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1978 end
+2022-12-09 15:54:53,022 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1982 start
+2022-12-09 15:54:53,444 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1982 ~ length matches: 39
+2022-12-09 15:54:53,486 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1982 end
+2022-12-09 15:54:53,486 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1986 start
+2022-12-09 15:54:53,955 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1986 ~ length matches: 47
+2022-12-09 15:54:53,997 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1986 end
+2022-12-09 15:54:53,997 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1990 start
+2022-12-09 15:54:54,470 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1990 ~ length matches: 47
+2022-12-09 15:54:54,516 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1990 end
+2022-12-09 15:54:54,517 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1994 start
+2022-12-09 15:54:55,043 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1994 ~ length matches: 47
+2022-12-09 15:54:55,081 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1994 end
+2022-12-09 15:54:55,081 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 1998 start
+2022-12-09 15:54:55,616 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 1998 ~ length matches: 74
+2022-12-09 15:54:55,675 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 1998 end
+2022-12-09 15:54:55,676 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2002 start
+2022-12-09 15:54:56,256 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2002 ~ length matches: 100
+2022-12-09 15:54:56,316 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2002 end
+2022-12-09 15:54:56,317 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2006 start
+2022-12-09 15:54:56,967 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2006 ~ length matches: 100
+2022-12-09 15:54:57,030 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2006 end
+2022-12-09 15:54:57,031 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2010 start
+2022-12-09 15:54:57,816 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2010 ~ length matches: 129
+2022-12-09 15:54:57,828 | dev  | WARNING  | fifa_wc_matches.py | 0088 | ignore_match | 2010 ignore table has text: Preliminary events
+2022-12-09 15:54:57,937 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2010 end
+2022-12-09 15:54:57,938 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2014 start
+2022-12-09 15:54:58,611 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2014 ~ length matches: 102
+2022-12-09 15:54:58,670 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2014 end
+2022-12-09 15:54:58,672 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2018 start
+2022-12-09 15:54:59,342 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2018 ~ length matches: 100
+2022-12-09 15:54:59,405 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2018 end
+2022-12-09 15:54:59,406 | dev  | INFO     | fifa_wc_matches.py | 0131 | get_results_history | [1930, 1934, 1938, 1950, 1954, 1958, 1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014, 2018] end 2022-12-09 15:54:59.406875 ~ time crawl: 0:00:11.272159
+2022-12-09 15:54:59,413 | dev  | INFO     | fifa_wc_matches.py | 0138 | get_results_history | end 21 years, done write file: data/fifa_worldcup_history.csv

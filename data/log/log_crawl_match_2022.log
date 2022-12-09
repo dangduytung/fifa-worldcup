@@ -1,0 +1,6 @@
+2022-12-09 15:58:28,510 | dev  | INFO     | fifa_wc_matches.py | 0109 | get_results_one_year | 2022 start
+2022-12-09 15:58:28,510 | dev  | INFO     | fifa_wc_matches.py | 0035 | crawl_matches | 2022 start
+2022-12-09 15:58:29,290 | dev  | INFO     | fifa_wc_matches.py | 0044 | crawl_matches | 2022 ~ length matches: 92
+2022-12-09 15:58:29,339 | dev  | WARNING  | fifa_wc_matches.py | 0096 | ignore_match | 2022 ignore table has text: Top 10 highest attendances
+2022-12-09 15:58:29,352 | dev  | INFO     | fifa_wc_matches.py | 0073 | crawl_matches | 2022 end
+2022-12-09 15:58:29,357 | dev  | INFO     | fifa_wc_matches.py | 0113 | get_results_one_year | 2022 end
