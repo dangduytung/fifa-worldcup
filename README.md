@@ -26,4 +26,7 @@ py src/bs4/fifa_wc_matches.py
 
 # Crawl matches using Selenium
 py src/selenium/s_fifa_wc_matches.py
+
+# Crawl groups, rank using Pandas
+py src/pandas/p_fifa_wc-groups.py
 ```

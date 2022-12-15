@@ -1,0 +1,27 @@
+2022-12-15 09:57:00,378 | dev  | INFO     | p_fifa_wc_groups.py | 0026 | __init__ | init
+2022-12-15 09:57:00,378 | dev  | INFO     | p_fifa_wc_groups.py | 0035 | _create_path_ | create directory: data/groups
+2022-12-15 09:57:00,379 | dev  | INFO     | p_fifa_wc_groups.py | 0035 | _create_path_ | create directory: data/rank
+2022-12-15 09:57:00,380 | dev  | INFO     | p_fifa_wc_groups.py | 0035 | _create_path_ | create directory: data-bin/groups
+2022-12-15 09:57:00,381 | dev  | INFO     | p_fifa_wc_groups.py | 0035 | _create_path_ | create directory: data-bin/rank
+2022-12-15 09:57:00,382 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1930 ~ https://en.wikipedia.org/wiki/1930_FIFA_World_Cup
+2022-12-15 09:57:01,232 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1934 ~ https://en.wikipedia.org/wiki/1934_FIFA_World_Cup
+2022-12-15 09:57:01,661 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1938 ~ https://en.wikipedia.org/wiki/1938_FIFA_World_Cup
+2022-12-15 09:57:02,095 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1950 ~ https://en.wikipedia.org/wiki/1950_FIFA_World_Cup
+2022-12-15 09:57:03,072 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1954 ~ https://en.wikipedia.org/wiki/1954_FIFA_World_Cup
+2022-12-15 09:57:03,609 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1958 ~ https://en.wikipedia.org/wiki/1958_FIFA_World_Cup
+2022-12-15 09:57:04,096 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1962 ~ https://en.wikipedia.org/wiki/1962_FIFA_World_Cup
+2022-12-15 09:57:04,785 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1966 ~ https://en.wikipedia.org/wiki/1966_FIFA_World_Cup
+2022-12-15 09:57:06,323 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1970 ~ https://en.wikipedia.org/wiki/1970_FIFA_World_Cup
+2022-12-15 09:57:06,989 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1974 ~ https://en.wikipedia.org/wiki/1974_FIFA_World_Cup
+2022-12-15 09:57:07,638 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1978 ~ https://en.wikipedia.org/wiki/1978_FIFA_World_Cup
+2022-12-15 09:57:08,264 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1982 ~ https://en.wikipedia.org/wiki/1982_FIFA_World_Cup
+2022-12-15 09:57:09,068 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1986 ~ https://en.wikipedia.org/wiki/1986_FIFA_World_Cup
+2022-12-15 09:57:09,895 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1990 ~ https://en.wikipedia.org/wiki/1990_FIFA_World_Cup
+2022-12-15 09:57:11,405 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1994 ~ https://en.wikipedia.org/wiki/1994_FIFA_World_Cup
+2022-12-15 09:57:12,164 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 1998 ~ https://en.wikipedia.org/wiki/1998_FIFA_World_Cup
+2022-12-15 09:57:13,388 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2002 ~ https://en.wikipedia.org/wiki/2002_FIFA_World_Cup
+2022-12-15 09:57:14,289 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2006 ~ https://en.wikipedia.org/wiki/2006_FIFA_World_Cup
+2022-12-15 09:57:15,130 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2010 ~ https://en.wikipedia.org/wiki/2010_FIFA_World_Cup
+2022-12-15 09:57:16,845 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2014 ~ https://en.wikipedia.org/wiki/2014_FIFA_World_Cup
+2022-12-15 09:57:17,872 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2018 ~ https://en.wikipedia.org/wiki/2018_FIFA_World_Cup
+2022-12-15 09:57:19,218 | dev  | INFO     | p_fifa_wc_groups.py | 0039 | get_groups_year | start crawl groups of 2022 ~ https://en.wikipedia.org/wiki/2022_FIFA_World_Cup
